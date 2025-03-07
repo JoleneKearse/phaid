@@ -9,7 +9,9 @@ function App() {
     <TypesProvider types={types}>
       <div className="py-20 w-1/2 mx-auto space-y-12">
         <Header />
-        <Fieldset />
+        <main className="space-y-12">
+          <Fieldset />  
+        </main>
       </div>
     </TypesProvider>
   );
