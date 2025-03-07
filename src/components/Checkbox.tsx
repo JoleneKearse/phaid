@@ -26,7 +26,7 @@ const Checkbox = ({ type }: CheckboxProps) => {
 				id={type}
         value={type}
 			/>
-      <label htmlFor="photoOptions">{labelText}</label>
+      <label htmlFor={type}>{labelText}</label>
 		</div>
 	);
 };
