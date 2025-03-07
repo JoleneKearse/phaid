@@ -1,14 +1,12 @@
+import Fieldset from "./components/Fieldset";
 import Header from "./components/Header";
-import Checkbox from "./components/Checkbox";
 
 function App() {
 
   return (
-    <div className="py-20 w-1/2 mx-auto">
+    <div className="py-20 w-1/2 mx-auto space-y-12">
       <Header />
-      <Checkbox type="webp" />
-      <Checkbox type="rmBackground" />
-      <Checkbox type="addAltText" />
+      <Fieldset />
     </div>
   )
 }
