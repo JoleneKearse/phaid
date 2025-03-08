@@ -3,10 +3,11 @@ import { DragEvent, useEffect, useState } from "react";
 
 const DropArea = () => {
 	const [files, setFiles] = useState<File[]>([]);
+  const message = files.length > 1 ? `${files.length} files added!` : files.length === 1 ? "File added!"
+  : "Drag your image here!";
 
 	const handleDrop = (e: DragEvent<HTMLDivElement>) => {
 		e.preventDefault();
-		console.log("drop");
 
 		if (e.dataTransfer.items) {
 			const newFiles: File[] = [];
@@ -22,6 +23,10 @@ const DropArea = () => {
 		}
 	};
 
+  const handleDragOver = (e: DragEvent<HTMLDivElement>) => {
+    e.preventDefault();
+};
+
 	useEffect(() => {
 		console.log(files);
 	}, [files]);
@@ -33,11 +38,12 @@ const DropArea = () => {
 			aria-label="drag your image here!"
 			aria-describedby="Drop image files here"
 			onDrop={handleDrop}
+      onDragOver={handleDragOver}
 			tabIndex={0}
 			className="bg-[url(/camera.webp)] bg-cover bg-center bg-no-repeat h-[400px] w-[400px] border-2 border-accent-blue-hover rounded-lg mx-auto flex flex-col justify-center items-center gap-6 font-extrabold text-4xl text-brand-400 text-center text-balance hover:border-accent-blue hover:text-accent-blue hover:opacity-80 transition-all duration-300 ease-in-out cursor-pointer"
 		>
 			<p className="mt-32">
-				{files.length > 0 ? "Files added!" : "Drag your image here!"}
+				{message}
 			</p>
 			<input
 				type="file"
