@@ -32,6 +32,7 @@ const DropArea = () => {
   };
 
   useEffect(() => {
+    console.log(files);
     files.forEach((file) => {
       console.log(`Name: ${file.name}, Size: ${file.size} bytes`);
     });
